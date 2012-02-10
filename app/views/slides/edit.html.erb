@@ -1,2 +1,5 @@
 <%= @slide.title %>
 <%= link_to "ページを追加", new_slide_page_path(@slide) %>
+<%- @slide.pages.each_with_index do |p, i| -%>
+  <p><%= link_to "EDIT #{i+1}page", edit_slide_page_path(@slide, p) %></p>
+<%- end -%>

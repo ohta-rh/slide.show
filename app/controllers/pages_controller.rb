@@ -9,6 +9,22 @@ class PagesController < ApplicationController
     @page = @slide.pages.build
   end
 
+  def edit
+    @page = @slide.pages.find params[:id]
+  end
+
+  def update
+    @page = @slide.pages.find params[:id]
+    @page.attributes = params[:page]
+
+    if @page.valid?
+      @page.save validate: false
+      redirect_to edit_slide_path( @slide )
+    else
+      render "edit"
+    end
+  end
+
   def create
     @page = @slide.pages.build
     @page.attributes = params[:page]
@@ -16,6 +32,8 @@ class PagesController < ApplicationController
     if @page.valid?
       @page.save validate: false
       redirect_to edit_slide_path( @slide )
+    else
+      render "new"
     end
   end
   private
