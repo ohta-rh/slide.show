@@ -19,19 +19,22 @@
   </div>
 </div>
 <footer>
-c RH.dev
+<div class="copy">
+  c RH.dev
+</div>
 </footer>
   <script>
+    $(".slide a").pjax("[data-pjax-container]")
     $(window).bind("popstate", function(){});
     $(document).bind("start.pjax", function(){
-      $('#content').animate({marginLeft:'-=' + $(window).width() + 'px',opacity:'0'},600,function(){
+      pos = {marginLeft:""}; //margin clear
+      $('#content').animate({marginLeft:'-=' + $(window).width() + 'px',opacity:'0'},500,function(){
         setTimeout(function(){
-         $('#content').css({marginLeft:'0',opacity:'1'})
-        },1000);
+          $('#content').css($.extend({opacity:'1'}, pos))
+        },40);
       });
     });
 
-    $(".slide a").pjax("[data-pjax-container]")
   </script>
 
 </body>
