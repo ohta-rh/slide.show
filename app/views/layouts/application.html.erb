@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SlideShow</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<header>
+<h1>Slide.show</h1>
+</header>
+<div class="wrapper">
+  <div id="content" class="content" draggable="true">
+    <div data-pjax-container >
+      <%= yield %>
+    </div>
+  </div>
+</div>
+<footer>
+c RH.dev
+</footer>
+  <script>
+    $(window).bind("popstate", function(){});
+    $(document).bind("start.pjax", function(){
+      $('#content').animate({marginLeft:'-=' + $(window).width() + 'px',opacity:'0'},600,function(){
+        setTimeout(function(){
+         $('#content').css({marginLeft:'0',opacity:'1'})
+        },1000);
+      });
+    });
+
+    $(".slide a").pjax("[data-pjax-container]")
+  </script>
+
+</body>
+</html>

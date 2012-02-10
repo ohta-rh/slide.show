@@ -1,0 +1,6 @@
+<%= form_for @page, url: slide_page_path(@slide) do |f| %>
+<%= f.label :body%>
+<%= f.text_area :body %>
+
+<p><%= f.submit "create page" %></p>
+<%- end -%>

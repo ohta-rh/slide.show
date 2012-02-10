@@ -1,0 +1,9 @@
+<section>
+<h2>スライド一覧</h2>
+<dl>
+  <%- @slides.each do |s| -%>
+    <dt><%= link_to s.title, slide_path(s.id) %>|<%= link_to "edit", edit_slide_path(s) %></dt>
+  <%- end -%>
+</dl>
+<%= link_to "スライド作成", new_slide_path %>
+</section>

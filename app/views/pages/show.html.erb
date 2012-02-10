@@ -1,0 +1,20 @@
+<div class="slide">
+  <div class="page-content">
+    <%== @page.body %>
+  </div>
+
+  <%- if p = @page.prev_page -%>
+  <%= link_to image_tag("prev.png"), slide_page_path(@slide, p), class: "btn-prev"  %>
+  <%- else -%>
+  <%= link_to image_tag("prev.png"), slide_path(@slide), class: "btn-prev"  %>
+  <%- end -%>
+  <%- if p = @page.next_page -%>
+  <%= link_to image_tag("next.png"), slide_page_path(@slide, p), class: "btn-next"  %>
+  <%- else -%>
+  <%= link_to image_tag("next.png"), slide_complete_path(@slide), class: "btn-next"  %>
+  <%- end -%>
+
+  <div class="sign">
+    <%= @slide.title %>&nbsp;&nbsp;(<%= @slide.author %>)
+  </div>
+</div>

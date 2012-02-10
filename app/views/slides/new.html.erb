@@ -1,0 +1,6 @@
+<%= @slide.errors.inspect if @slide.errors.present?%>
+<%= form_for @slide do |f| %>
+  <p><%= f.label :title %><%= f.text_field :title %></p>
+  <p><%= f.label :author %><%= f.text_field :author %></p>
+  <p><%= f.submit "create" %></p>
+<%- end -%>

@@ -1,0 +1,19 @@
+<article>
+<section>
+<div class="slide">
+  <div class="rh">
+    <%= image_tag("rh.jpg", height: "100%" ) %>
+  </div>
+  <div class="slide_title">
+    <%= @slide.title %><span class="author">(<%= @slide.author %>)</span>
+    <br>
+    <span class="created_at">作成日:<%= @slide.created_at.strftime("%Y年%m月%d日") %></span>
+    <br>
+    <span class="start">
+      <%= link_to image_tag("start.png"), slide_page_path(@slide, @slide.pages.first) %>
+    </span>
+  </div>
+
+</div>
+</section>
+</article>
